@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class DescriptionOfNotesFragment extends Fragment {
-    public static DescriptionOfNotesFragment newInstance() {
+    public static DescriptionOfNotesFragment newInstance(Note currentNote) {
         return new DescriptionOfNotesFragment();
     }
 

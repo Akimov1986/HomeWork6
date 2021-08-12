@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notes">
+        <item>День рождение</item>
+        <item>Собеседование</item>
+        <item>Встреча</item>
+        <item>Вечеринка</item>
+        <item>Экзамен</item>
+        <item>Отпуск</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>ДР Макса</item>
+        <item>Собеседование в GB</item>
+        <item>Встреча выпускников</item>
+        <item>Пати у Мани</item>
+        <item>Экзамен ГИБДД</item>
+        <item>Вылет в Турцию</item>
+
+    </string-array>
+
+    
+
+
+</resources>
