@@ -1,7 +1,6 @@
 package com.example.homework6;
 
 import android.content.res.Configuration;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import javax.xml.namespace.QName;
 
 public class NotesFragment extends Fragment {
 
@@ -38,9 +33,9 @@ public class NotesFragment extends Fragment {
         if (savedInstanceState != null) {
             currentNote = savedInstanceState.getParcelable(ARG_NOTE);
         }
-        if(isLandScape)
-            if(currentNote!=null) {
-                showDescriptionOfNotes(currentNote.);
+        if (isLandScape)
+            if (currentNote != null) {
+                showDescriptionOfNotes(currentNote.describeContents());
             } else {
                 showDescriptionOfNotes(0);
             }
@@ -52,9 +47,9 @@ public class NotesFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putParcelable(ARG_NOTE,currentNote);
-            super.onSaveInstanceState(outState);
-        }
+        outState.putParcelable(ARG_NOTE, currentNote);
+        super.onSaveInstanceState(outState);
+    }
 
 
     @Override
@@ -82,15 +77,16 @@ public class NotesFragment extends Fragment {
         }
         return view;
     }
+
     private void showDescriptionOfNotes(int index) {
         currentNote = new Note(getResources().getStringArray(R.array.notes)[index]);
-        if(isLandScape) {
+        if (isLandScape) {
             showDescriptionOfNotesLand();
         } else {
             showDescriptionOfNotesPort();
         }
 
-        }
+    }
 
     private void showDescriptionOfNotesPort() {
         requireActivity()
@@ -100,6 +96,7 @@ public class NotesFragment extends Fragment {
                 .addToBackStack("")
                 .commit();
     }
+
     private void showDescriptionOfNotesLand() {
         requireActivity()
                 .getSupportFragmentManager()
@@ -109,8 +106,7 @@ public class NotesFragment extends Fragment {
     }
 
 
-
 //        TypedArray typedArray = getResources().obtainTypedArray(R.array.Notes);
 //        return view;
-        }
+}
 
