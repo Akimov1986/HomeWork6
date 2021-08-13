@@ -19,13 +19,14 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.notes_container, NotesFragment.newInstance())
                 .commit();
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            if(savedInstanceState==null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.characteristic_notes_container, NotesFragment.newInstance())
-                    .commit();
+            if (savedInstanceState == null) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.characteristic_notes_container, NotesFragment.newInstance())
+                        .commit();
+            }
         }
-    }
+
 
 //    @Override
 //    protected void onResume() {

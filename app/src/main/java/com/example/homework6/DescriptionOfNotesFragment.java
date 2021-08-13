@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class DescriptionOfNotesFragment extends Fragment {
 
     public static String ARG_NOTE = "note";
     private Note note;
+
     public static DescriptionOfNotesFragment newInstance(Note note) {
         DescriptionOfNotesFragment fragment = new DescriptionOfNotesFragment();
         Bundle bundle = new Bundle();
@@ -26,7 +26,7 @@ public class DescriptionOfNotesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(getArguments()!= null) {
+        if (getArguments() != null) {
             this.note = getArguments().getParcelable(ARG_NOTE);
         }
     }
@@ -34,11 +34,24 @@ public class DescriptionOfNotesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_description_of_notes, container, false);
-        TextView textView = view.findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.textViewDescript);
         textView.setText(this.note.getName());
+        LinearLayout linearLayout = (LinearLayout) view;
 
-        TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
+        String[] description = getResources().getStringArray(R.array.description);
+
+        for (int i = 0; i < description.length; i++) {
+            String name = description[i];
+
+            TextView textView1 = new TextView(getContext());
+            textView1.setText(name);
+            textView1.setTextSize(30);
+            linearLayout.addView(textView1);
+
+
+            //TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
+
+        }
         return view;
-
     }
 }
