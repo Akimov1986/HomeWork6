@@ -1,9 +1,11 @@
 package com.example.homework6;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -36,8 +38,9 @@ public class DescriptionOfNotesFragment extends Fragment {
         textView.setText(this.note.getName());
         //LinearLayout linearLayout = (LinearLayout) view;
 
-        String[] description = getResources().getStringArray(R.array.description);
 
+        String[] description = getResources().getStringArray(R.array.description);
+        textView.setText(description[note.getDescript()]);
 //
 //        for (int i = 0; i < description.length; i++) {
 //            String dname = description[i];
@@ -50,7 +53,7 @@ public class DescriptionOfNotesFragment extends Fragment {
 //        linearLayout.addView(textView1);
 //    }
 
-//        TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
+        //TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
         return view;
     }
 
