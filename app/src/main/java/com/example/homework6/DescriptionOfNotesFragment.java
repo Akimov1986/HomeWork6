@@ -1,11 +1,9 @@
 package com.example.homework6;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -36,22 +34,28 @@ public class DescriptionOfNotesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_description_of_notes, container, false);
         TextView textView = view.findViewById(R.id.textViewDescript);
         textView.setText(this.note.getName());
-        LinearLayout linearLayout = (LinearLayout) view;
+        //LinearLayout linearLayout = (LinearLayout) view;
 
         String[] description = getResources().getStringArray(R.array.description);
 
-        for (int i = 0; i < description.length; i++) {
-            String name = description[i];
+//
+//        for (int i = 0; i < description.length; i++) {
+//            String dname = description[i];
+//
+//
+//        TextView textView1 = new TextView(getContext());
+//        textView1.setText(dname);
+//
+//        textView1.setTextSize(30);
+//        linearLayout.addView(textView1);
+//    }
 
-            TextView textView1 = new TextView(getContext());
-            textView1.setText(name);
-            textView1.setTextSize(30);
-            linearLayout.addView(textView1);
-
-
-            //TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
-
-        }
+//        TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
         return view;
     }
+
 }
+
+
+
+

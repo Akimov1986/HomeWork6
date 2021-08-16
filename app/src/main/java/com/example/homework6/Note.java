@@ -4,16 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Note implements Parcelable {
-    private String name;
-    private String descript;
-
-    public Note(String name) {
-        this.name = name;
-    }
-
-    protected Note(Parcel in) {
-        name = in.readString();
-    }
 
     public static final Creator<Note> CREATOR = new Creator<Note>() {
         @Override
@@ -26,6 +16,21 @@ public class Note implements Parcelable {
             return new Note[size];
         }
     };
+    private String name;
+    private String descript;
+
+
+    public Note(String name) {
+        this.name = name;
+    }
+
+    protected Note(Parcel in) {
+        name = in.readString();
+    }
+
+    public String getDescript() {
+        return descript;
+    }
 
     public String getName() {
         return name;
