@@ -1,11 +1,9 @@
 package com.example.homework6;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -34,13 +32,14 @@ public class DescriptionOfNotesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_description_of_notes, container, false);
-        TextView textView = view.findViewById(R.id.textViewDescript);
-        textView.setText(this.note.getDescript());
-        LinearLayout linearLayout = (LinearLayout) view;
+        TextView text_notes = view.findViewById(R.id.textView);
+        TextView text_discr = view.findViewById(R.id.textViewDescript);
+        text_notes.setText(this.note.getName());
+        //LinearLayout linearLayout = (LinearLayout) view;
 
 
-        String[] description = getResources().getStringArray(R.array.description);
-        textView.setText(description[note.getDescript()]);
+        String[] descriptArr = getResources().getStringArray(R.array.description);
+        text_discr.setText(descriptArr[this.note.getDescript()]);
 //
 //        for (int i = 0; i < description.length; i++) {
 //            String dname = description[i];

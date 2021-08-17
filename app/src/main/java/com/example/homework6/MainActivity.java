@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,28 +14,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.notes_container, NotesFragment.newInstance())
-                .commit();
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            if (savedInstanceState == null) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.characteristic_notes_container, NotesFragment.newInstance())
-                        .commit();
-            }
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.notes_container, NotesFragment.newInstance())
+//                .commit();
+//        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.notes_container, NotesFragment.newInstance())
+                    .commit();
         }
+    }
 
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Fragment backStackFragment = (Fragment)getSupportFragmentManager()
-//                .findFragmentById(R.id.notes_container);
-//
-//        if(backStackFragment!=null&&backStackFragment instanceof DescriptionOfNotesFragment) {
-//            onBackPressed();
-//        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Fragment backStackFragment = (Fragment) getSupportFragmentManager()
+                .findFragmentById(R.id.notes_container);
+
+        if (backStackFragment != null && backStackFragment instanceof DescriptionOfNotesFragment) {
+            onBackPressed();
+        }
     }
 }

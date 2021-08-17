@@ -1,7 +1,6 @@
 package com.example.homework6;
 
 import android.content.res.Configuration;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +62,6 @@ public class NotesFragment extends Fragment {
         //textView.setText(this.note.getName());
         for (int i = 0; i < notes.length; i++) {
             String name = notes[i];
-
             TextView textView = new TextView(getContext());
             textView.setText(name);
             textView.setTextSize(30);
@@ -107,7 +105,7 @@ public class NotesFragment extends Fragment {
     }
 
 
-        //TypedArray typedArray = getResources().obtainTypedArray(R.array.notes);
-      // return view;
+    //TypedArray typedArray = getResources().obtainTypedArray(R.array.notes);
+    // return view;
 }
 
