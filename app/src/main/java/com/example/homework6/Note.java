@@ -8,7 +8,7 @@ public class Note implements Parcelable {
     private String name;
     private String descript;
 
-    public Note(String name) {
+    public Note(String name, String descript) {
         this.name = name;
         this.descript = descript;
     }
