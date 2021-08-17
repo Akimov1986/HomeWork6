@@ -20,10 +20,6 @@ public class NotesFragment extends Fragment {
     public static NotesFragment newInstance() {
         return new NotesFragment();
 
-//        Bundle bundle = new Bundle();
-//        bundle.putParcelable(ARG_NOTE, note);
-//        fragment.setArguments(bundle);
-//        return fragment;
     }
 
     @Override
@@ -39,10 +35,6 @@ public class NotesFragment extends Fragment {
             } else {
                 showDescriptionOfNotes(0);
             }
-
-//        if(getArguments()!= null) {
-//            this.note = getArguments().getParcelable(ARG_NOTE);
-//        }
     }
 
     @Override
@@ -58,8 +50,7 @@ public class NotesFragment extends Fragment {
         LinearLayout linearLayout = (LinearLayout) view;
 
         String[] notes = getResources().getStringArray(R.array.notes);
-        //TextView textView = view.findViewById(R.id.textView);
-        //textView.setText(this.note.getName());
+
         for (int i = 0; i < notes.length; i++) {
             String name = notes[i];
             TextView textView = new TextView(getContext());
@@ -78,7 +69,8 @@ public class NotesFragment extends Fragment {
     }
 
     private void showDescriptionOfNotes(int index) {
-        currentNote = new Note(getResources().getStringArray(R.array.notes)[index]);
+        currentNote = new Note(getResources().getStringArray(R.array.notes)[index],
+                getResources().getStringArray(R.array.description)[index]);
         if (isLandScape) {
             showDescriptionOfNotesLand();
         } else {
@@ -103,9 +95,5 @@ public class NotesFragment extends Fragment {
                 .replace(R.id.characteristic_notes_container, DescriptionOfNotesFragment.newInstance(currentNote))
                 .commit();
     }
-
-
-    //TypedArray typedArray = getResources().obtainTypedArray(R.array.notes);
-    // return view;
 }
 

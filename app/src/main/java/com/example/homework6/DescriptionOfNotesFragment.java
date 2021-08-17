@@ -32,28 +32,13 @@ public class DescriptionOfNotesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_description_of_notes, container, false);
-        //TextView text_notes = view.findViewById(R.id.textView);
         TextView text_discr = view.findViewById(R.id.textViewDescript);
         text_discr.setText("this.note.getName()");
-        //LinearLayout linearLayout = (LinearLayout) view;
 
 
         String[] descriptArr = getResources().getStringArray(R.array.description);
-       // text_discr.setText(descriptArr[this.note.getDescript()]); ОШИБКА
         text_discr.setText(note.getDescript());
-//
-//        for (int i = 0; i < description.length; i++) {
-//            String dname = description[i];
-//
-//
-//        TextView textView1 = new TextView(getContext());
-//        textView1.setText(dname);
-//
-//        textView1.setTextSize(30);
-//        linearLayout.addView(textView);
-//    }
 
-        //TypedArray typedArray = getResources().obtainTypedArray(R.array.description);
         return view;
     }
 
